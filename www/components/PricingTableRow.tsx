@@ -84,7 +84,7 @@ export const PricingTableRowDesktop = (props: any) => {
               {feat.title}
             </th>
 
-            {Object.values(feat.tiers).map((tier) => {
+            {Object.values(feat.tiers).map((tier: any) => {
               return (
                 <td className="py-5 px-6">
                   {typeof tier === 'boolean' && tier === true ? (
@@ -145,7 +145,7 @@ export const PricingTableRowMobile = (props: any) => {
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-200 dark:divide-gray-600 ">
-          {category.features.map((feat) => {
+          {category.features.map((feat: any) => {
             return (
               <tr className="border-t border-gray-200 dark:border-gray-600 ">
                 <th className="py-5 px-4 text-sm font-normal text-gray-500 text-left" scope="row">
