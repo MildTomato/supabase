@@ -237,7 +237,10 @@ function AuthPage() {
                     </Button>
                   </div>
                   <div className="col-span-12 lg:col-span-6 lg:col-start-7">
-                    <SplitCodeBlockCarousel content={StoragePermissionsData} />
+                    <SplitCodeBlockCarousel
+                      // @ts-ignore */
+                      content={StoragePermissionsData}
+                    />
                   </div>
                 </div>
               </SectionContainer>
