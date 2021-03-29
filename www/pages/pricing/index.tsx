@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
-import { Badge, Button, Space, Typography } from '@supabase/ui'
-import pricing from '~/data/Pricing.json'
-import { PricingTableRowDesktop, PricingTableRowMobile } from '~/components/PricingTableRow'
-import DefaultLayout from '~/components/Layouts/Default'
 import Link from 'next/link'
+
+import DefaultLayout from '~/components/Layouts/Default'
+import { PricingTableRowDesktop, PricingTableRowMobile } from '~/components/PricingTableRow'
+import { Badge, Button, Divider, Space, Typography } from '@supabase/ui'
+
+import pricing from '~/data/Pricing.json'
+import pricingFaq from '~/data/PricingFAQ.json'
+import ReactMarkdown from 'react-markdown'
 
 export default function IndexPage() {
   return (
@@ -263,103 +267,20 @@ export default function IndexPage() {
           <h2 className="text-3xl text-gray-900 dark:text-white">Frequently asked questions</h2>
           <div className="mt-6 border-t border-gray-600 border-opacity-25 pt-10">
             <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:grid-rows-2 md:gap-x-8 md:gap-y-12">
-              <div>
-                <dt className="text-lg leading-6 font-medium text-white">
-                  <Typography.Title level={4}>
-                    What happens when I go over my limits?
-                  </Typography.Title>
-                </dt>
-                <dd className="mt-2 text-base ">
-                  <Typography.Text>
-                    All soft-limits. We will reach out to you if you go over a limit.
-                  </Typography.Text>
-                </dd>
-              </div>
-
-              <div>
-                <dt className="text-lg leading-6 font-medium text-white">
-                  <Typography.Title level={4}>
-                    Will there be downtime if I need to upgrade my database?
-                  </Typography.Title>
-                </dt>
-                <dd className="mt-2 text-base ">
-                  <Typography.Text>
-                    During Beta, there will be downtime. If you are on the Base tier, we will be
-                    able to increase
-                  </Typography.Text>
-                </dd>
-              </div>
-
-              <div>
-                <dt className="text-lg leading-6 font-medium text-white">
-                  <Typography.Title level={4}>
-                    Can I disable the Database/Auth/Storage?
-                  </Typography.Title>
-                </dt>
-                <dd className="mt-2 text-base ">
-                  <Typography.Text>
-                    Not yet. All of them are required while we are in Beta. Soon you will be able to
-                    disable functionality which you don't use.
-                  </Typography.Text>
-                </dd>
-              </div>
-
-              <div>
-                <dt className="text-lg leading-6 font-medium text-white">
-                  <Typography.Title level={4}>
-                    What CPU architecture is in the database?
-                  </Typography.Title>
-                </dt>
-                <dd className="mt-2 text-base ">
-                  <Typography.Text>ARM because it's awesome. Add an ARM icon?</Typography.Text>
-                </dd>
-              </div>
-
-              <div>
-                <dt className="text-lg leading-6 font-medium text-white">
-                  <Typography.Title level={4}>Database data egress</Typography.Title>
-                </dt>
-                <dd className="mt-2 text-base ">
-                  <Typography.Text>
-                    Fair usage during Beta. We're using Beta to get an understandig.
-                  </Typography.Text>
-                </dd>
-              </div>
-              <div>
-                <dt className="text-lg leading-6 font-medium text-white">
-                  <Typography.Title level={4}>PIT Backup?</Typography.Title>
-                </dt>
-                <dd className="mt-2 text-base ">
-                  <Typography.Text>Describe.</Typography.Text>
-                </dd>
-              </div>
-
-              <div>
-                <dt className="text-lg leading-6 font-medium text-white">
-                  <Typography.Title level={4}>What about functions?</Typography.Title>
-                </dt>
-                <dd className="mt-2 text-base ">
-                  <Typography.Text>You can use RPC or Serverless coming soon.</Typography.Text>
-                </dd>
-              </div>
-
-              <div>
-                <dt className="text-lg leading-6 font-medium text-white">
-                  <Typography.Title level={4}>What are auth transactional emails?</Typography.Title>
-                </dt>
-                <dd className="mt-2 text-base ">
-                  <Typography.Text>TBD.</Typography.Text>
-                </dd>
-              </div>
-
-              <div>
-                <dt className="text-lg leading-6 font-medium text-white">
-                  <Typography.Title level={4}>Can I do annual pricing?</Typography.Title>
-                </dt>
-                <dd className="mt-2 text-base ">
-                  <Typography.Text>TBD.</Typography.Text>
-                </dd>
-              </div>
+              {pricingFaq.map((faq, i) => {
+                return (
+                  <div>
+                    <dt className="text-lg leading-6 font-medium text-white">
+                      <Typography.Title level={4}>{faq.question}</Typography.Title>
+                    </dt>
+                    <dd className="mt-2 text-base ">
+                      <Typography.Text>
+                        <ReactMarkdown>{faq.answer}</ReactMarkdown>
+                      </Typography.Text>
+                    </dd>
+                  </div>
+                )
+              })}
             </dl>
           </div>
         </div>
