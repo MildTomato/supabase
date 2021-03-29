@@ -29,6 +29,7 @@
     { "source": "/beta", "destination": "https://www-internal.supabase.io/new/beta" },
     { "source": "/database", "destination": "https://www-internal.supabase.io/new/database" },
     { "source": "/auth", "destination": "https://www-internal.supabase.io/new/auth" },
+    { "source": "/pricing", "destination": "https://www-internal.supabase.io/new/pricing" },
     { "source": "/:match*", "destination": "https://docs-rose.vercel.app/:match*" }
   ],
   "redirects": [
