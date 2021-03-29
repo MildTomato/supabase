@@ -1,4 +1,7 @@
-import { Space, Typography } from '@supabase/ui'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { IconHelpCircle, IconWatch, Space, Typography } from '@supabase/ui'
+import ReactTooltip from 'react-tooltip'
 
 const Chevron = (props: any) => (
   <>
@@ -44,7 +47,7 @@ export const PricingTableRowDesktop = (props: any) => {
     <>
       <tr className="divide-x dark:divide-gray-600" style={{ borderTop: 'none' }}>
         <th
-          className="bg-gray-50 dark:bg-gray-700 py-3 pl-6 text-sm font-medium text-gray-900 dark:text-white text-left"
+          className="pricing-table__product-row bg-gray-50 dark:bg-gray-700 py-3 pl-6 text-sm font-medium text-gray-900 dark:text-white text-left"
           scope="colgroup"
         >
           <Space size={4}>
@@ -69,19 +72,27 @@ export const PricingTableRowDesktop = (props: any) => {
             <Typography.Title level={4}>{category.title}</Typography.Title>
           </Space>
         </th>
-        <td className="bg-gray-50 dark:bg-dark-700 py-5 px-6"></td>
-        <td className="bg-gray-50 dark:bg-dark-700 py-5 px-6"></td>
-        <td className="bg-gray-50 dark:bg-dark-700 py-5 px-6"></td>
+        <td className="pricing-table__product-row bg-gray-50 dark:bg-dark-700 py-5 px-6"></td>
+        <td className="pricing-table__product-row bg-gray-50 dark:bg-dark-700 py-5 px-6"></td>
+        <td className="pricing-table__product-row bg-gray-50 dark:bg-dark-700 py-5 px-6"></td>
       </tr>
 
       {category.features.map((feat: any) => {
         return (
           <tr className="divide-x dark:divide-gray-600">
             <th
-              className="py-5 px-6 text-sm font-normal text-gray-500 dark:text-gray-300 text-left"
+              className="flex items-center py-5 px-6 text-sm font-normal text-gray-500 dark:text-gray-300 text-left"
               scope="row"
             >
-              {feat.title}
+              <span>{feat.title} </span>
+              {feat.tooltip && (
+                <span
+                  className="ml-2 cursor-pointer hover:text-gray-800 dark:hover:text-white"
+                  data-tip={feat.tooltip}
+                >
+                  <IconHelpCircle size="small" />
+                </span>
+              )}
             </th>
 
             {Object.values(feat.tiers).map((tier: any) => {
@@ -100,6 +111,7 @@ export const PricingTableRowDesktop = (props: any) => {
           </tr>
         )
       })}
+      <ReactTooltip effect={'solid'} />
     </>
   )
 }
@@ -149,7 +161,9 @@ export const PricingTableRowMobile = (props: any) => {
             return (
               <tr className="border-t border-gray-200 dark:border-gray-600 ">
                 <th className="py-5 px-4 text-sm font-normal text-gray-500 text-left" scope="row">
-                  <Typography.Text type="secondary">{feat.title}</Typography.Text>
+                  <span>
+                    <Typography.Text type="secondary">{feat.title}</Typography.Text>
+                  </span>
                 </th>
                 <td className="py-5 pr-4 text-right">
                   {typeof feat.tiers[tier] === 'boolean' && feat.tiers[tier] === true ? (
@@ -171,6 +185,7 @@ export const PricingTableRowMobile = (props: any) => {
           })}
         </tbody>
       </table>
+      <ReactTooltip effect={'solid'} />
     </>
   )
 }
