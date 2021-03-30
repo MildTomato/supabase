@@ -88,7 +88,7 @@ function AuthPage() {
 
         <SectionContainer>
           <div className="grid grid-cols-12">
-            <div className="col-span-3">
+            <div className="mb-10 lg:mb-0 col-span-12 lg:col-span-3">
               <p className="mb-4">
                 <Space>
                   <ProductIcon icon={Solutions['storage'].icon} />
@@ -98,10 +98,10 @@ function AuthPage() {
                   <ProductIcon icon={Solutions['database'].icon} />
                 </Space>
               </p>
-              <Typography.Title level={4}>Write less code</Typography.Title>
+              <Typography.Title level={4}>Interoperable</Typography.Title>
               <Typography.Text>
                 <p className="text-lg">
-                  Interoperable with all other Supabase services, including Auth and Postgres.
+                  Integrates well with the rest of Supabase ecosystem, including Auth and Postgres.
                 </p>
                 {/* <p>
                 Familiar and easy to use permissions mean that your content is secure and accessible
@@ -109,7 +109,7 @@ function AuthPage() {
               </p> */}
               </Typography.Text>
             </div>
-            <div className="col-span-3 col-start-5">
+            <div className="mb-10 lg:mb-0 col-span-12 lg:col-span-3 lg:col-start-5">
               <p className="mb-4">
                 <IconBarChart />
               </p>
@@ -124,13 +124,13 @@ function AuthPage() {
               </p> */}
               </Typography.Text>
             </div>
-            <div className="col-span-3 col-start-9">
+            <div className="col-span-12 lg:col-span-3 lg:col-start-9">
               <p className="mb-4">
                 <IconCheckSquare />
               </p>
               <Typography.Title level={4}>Dependable</Typography.Title>
               <Typography.Text>
-                <p className="text-lg">Enterprise-level uptime complete with automatic backups.</p>
+                <p className="text-lg">Enterprise-level scalability and durability.</p>
                 {/* <p>A durability rating of 99.999999999%.</p> */}
               </Typography.Text>
             </div>
@@ -154,17 +154,21 @@ function AuthPage() {
               // !! Update this example !!
               <ExampleCard
                 type={'example'}
-                products={['database']}
+                products={['database', 'auth', 'storage']}
                 title={'Profile managment example'}
-                description={'NextJS Slack clone app using Supabase realtime subscriptions'}
+                description={
+                  'Update a user account with public profile information, including uploading a profile image.'
+                }
                 author={'supabase'}
                 author_url={'https://github.com/supabase'}
                 author_img={'https://avatars.githubusercontent.com/u/54469796'}
-                repo_name={'update-this-example'}
+                repo_name={'nextjs-ts-user-management'}
                 repo_url={
-                  'https://github.com/supabase/supabase/tree/master/examples/nextjs-slack-clone'
+                  'https://github.com/supabase/supabase/tree/master/examples/nextjs-ts-user-management'
                 }
-                vercel_deploy_url={'a'}
+                vercel_deploy_url={
+                  'https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fsupabase%2Fsupabase%2Ftree%2Fmaster%2Fexamples%2Fnextjs-ts-user-management&project-name=supabase-user-management&repository-name=supabase-user-management&demo-title=Supabase%20User%20Management&demo-description=An%20example%20web%20app%20using%20Supabase%20and%20Next.js&demo-url=https%3A%2F%2Fsupabase-nextjs-ts-user-management.vercel.app&demo-image=https%3A%2F%2Fi.imgur.com%2FZ3HkQqe.png&integration-ids=oac_jUduyjQgOyzev1fjrW83NYOv&external-id=nextjs-user-management'
+                }
                 demo_url={'https://supabase-slack-clone-supabase.vercel.app/'}
               />,
             ]}
@@ -189,7 +193,7 @@ function AuthPage() {
                   <FeatureColumn
                     icon={<IconWifi />}
                     title="CDN integration"
-                    text="Served from the edge to reduce latency."
+                    text="Serve from the edge to reduce latency."
                   />
                   <Badge color="blue">Coming soon</Badge>
                 </div>
@@ -226,10 +230,10 @@ function AuthPage() {
                         with Supabase Auth
                       </Typography.Title>
                       <p className="text-lg">
-                        Using Postgres Row Level Security to create File access rules.
+                        Using Postgres Row Level Security to create Object access rules.
                       </p>
                       <p>
-                        Supabase Storage is built around Postgres so that you can use any
+                        Storage Authorization is built around Postgres so that you can use any
                         combination of SQL, Postgres functions, and even your own metadata to write
                         policies.
                       </p>
