@@ -27,9 +27,10 @@
     { "source": "/blog/rss.xml", "destination": "https://www-internal.supabase.io/new/rss.xml" },
     { "source": "/blog/rss", "destination": "https://www-internal.supabase.io/new/rss.xml" },
     { "source": "/beta", "destination": "https://www-internal.supabase.io/new/beta" },
+    { "source": "/pricing", "destination": "https://www-internal.supabase.io/new/pricing" },
     { "source": "/database", "destination": "https://www-internal.supabase.io/new/database" },
     { "source": "/auth", "destination": "https://www-internal.supabase.io/new/auth" },
-    { "source": "/pricing", "destination": "https://www-internal.supabase.io/new/pricing" },
+    { "source": "/storage", "destination": "https://www-internal.supabase.io/new/storage" },
     { "source": "/:match*", "destination": "https://docs-rose.vercel.app/:match*" }
   ],
   "redirects": [
@@ -142,7 +143,9 @@
     { "source": "/docs/client/fts", "destination": "/docs/reference/javascript/textSearch" },
     { "source": "/docs/client/plfts", "destination": "/docs/reference/javascript/textSearch" },
     { "source": "/docs/client/phfts", "destination": "/docs/reference/javascript/textSearch" },
-    { "source": "/docs/client/wfts", "destination": "/docs/reference/javascript/textSearch" }
+    { "source": "/docs/client/wfts", "destination": "/docs/reference/javascript/textSearch" },
+
+    { "source": "/docs/pricing", "destination": "/pricing" }
   ],
   "trailingSlash": false
 }
